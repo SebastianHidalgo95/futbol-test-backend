@@ -11,7 +11,7 @@ class Team extends Model
 
     protected $table = 'team';
     protected $primaryKey = 'id_team';
-    protected $connection = 'mysql';
+    protected $connection = 'pgsql';
     protected $fillable = [
         'id_team',
         'name',

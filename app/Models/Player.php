@@ -11,7 +11,7 @@ class Player extends Model
 
     protected $table = 'player';
     protected $primaryKey = 'id_player';
-    protected $connection = 'mysql';
+    protected $connection = 'pgsql';
     protected $fillable = [
         'id_player',
         'name',
