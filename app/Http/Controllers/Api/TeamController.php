@@ -87,7 +87,7 @@ class TeamController extends Controller
     }
     public function getAllTeams () {
         try {
-            $teams = Team::All();
+            $teams = Team::with('players')->get();
             return response()->json($teams);
         } catch (Exception $e) { 
             return response()->json(['error' => $e->getMessage()], 500);
@@ -103,7 +103,7 @@ class TeamController extends Controller
             if ($validator->fails()){
                 return response()->json(['error'=>$validator->errors()->first()]);
             }
-            $team = Team::where('id_team','=',$request->id_team)->first();
+            $team = Team::where('id_team','=',$request->id_team)->with('players')->first();
             if($team) {
                 return response()->json($team);
             } else {
